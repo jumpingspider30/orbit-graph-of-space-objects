@@ -61,4 +61,5 @@ ax.grid(color='gray', linestyle=':', linewidth=0.5, alpha=0.5)
 
 # Save the figure
 plt.savefig(os.path.join('europa_solar_system_diagram.png'), dpi=300, bbox_inches='tight')
-print("Diagram saved to c:/Python/europa_solar_system_diagram.png")
+print("Diagram saved as europa_solar_system_diagram.png")
+
