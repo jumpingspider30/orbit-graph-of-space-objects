@@ -24,20 +24,14 @@ earth_y = vectors_earth['y'][0]
 plt.style.use('dark_background')
 fig, ax = plt.subplots(figsize=(10, 10))
 
-# Plot the Sun at the center
 ax.scatter(0, 0, s=1200, color='gold', edgecolor='orange', linewidth=2, zorder=3, label='Sun')
 
-# ----------------- BEAUTIFIED ORBITS -----------------
 theta = np.linspace(0, 2*np.pi, 500)
 
-# Earth's orbit (1 AU)
 ax.plot(np.cos(theta), np.sin(theta), '--', color='deepskyblue', alpha=0.6, linewidth=1.5, label="Earth's Orbit")
 
-# Europa's orbit (~5.2 AU, same as Jupiter)
 ax.plot(5.2*np.cos(theta), 5.2*np.sin(theta), '--', color='white', alpha=0.6, linewidth=1.5, label="Europa's Orbit (≈ Jupiter)")
-# ----------------- END ORBITS -----------------
 
-# Plot Earth
 ax.scatter(earth_x, earth_y, s=180, color='deepskyblue', edgecolor='white', linewidth=1.5, zorder=4, label='Earth')
 ax.text(earth_x+0.1, earth_y+0.1, 'Earth', fontsize=10, color='deepskyblue')
 
@@ -45,21 +39,16 @@ ax.text(earth_x+0.1, earth_y+0.1, 'Earth', fontsize=10, color='deepskyblue')
 ax.scatter(europa_x, europa_y, s=180, color='white', edgecolor='gray', linewidth=1.5, zorder=4, label='Europa')
 ax.text(europa_x+0.1, europa_y+0.1, 'Europa', fontsize=10, color='white')
 
-# ----------------- STYLING -----------------
 ax.set_title("Europa and Earth Relative to the Sun", fontsize=16, color='w', pad=20)
 ax.set_xlabel("X Position (AU)", fontsize=12)
 ax.set_ylabel("Y Position (AU)", fontsize=12)
 
-
-# Axis limits
 ax.set_xlim(-6, 6)
 ax.set_ylim(-6, 6)
 ax.set_aspect('equal', adjustable='box')
 
-# Light grid
 ax.grid(color='gray', linestyle=':', linewidth=0.5, alpha=0.5)
 
-# Save the figure
 plt.savefig(os.path.join('europa_solar_system_diagram.png'), dpi=300, bbox_inches='tight')
 print("Diagram saved as europa_solar_system_diagram.png")
 
